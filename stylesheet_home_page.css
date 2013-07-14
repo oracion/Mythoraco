@@ -1,0 +1,189 @@
+/*	CSS FILE FOR THE UNLOGON USER */
+body
+{
+ margin:0;
+}
+
+#global_container
+{
+ background-image: url("background.png");
+ margin: 0 auto;
+ width: 989px;
+ height: 1067px;
+ border-style:solid;
+ border-width:1px;
+ border-radius:2px;
+}
+
+#mid_container
+{
+ width: 989px;
+ height:766px;
+}
+
+header
+{
+ border-radius: 3px;
+ display: block;
+ background: -webkit-linear-gradient( bottom, #aaaaaa, #656565);
+ background:    -moz-linear-gradient( bottom, #aaaaaa, #656565);
+ background:     -ms-linear-gradient( bottom, #aaaaaa, #656565);
+ background:      -o-linear-gradient( bottom, #aaaaaa, #656565);
+ background:         linear-gradient( to top, #aaaaaa, #656565);
+ height: 200px;
+ width: 989px;
+ text-align: center;
+ margin-bottom: 20px;
+ text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
+}
+
+header a
+{
+ display:block;
+ background-image: url("logo.png");
+ width: 800px;
+ height: 200px;
+ margin: 0px 95px 0px;
+}
+
+nav
+{
+ z-index:1;
+ float: right;
+ margin-right: 5px;
+ border: 1px solid black;
+ height: 763px;
+ width: 110px;
+ background: -webkit-linear-gradient( bottom, #aaaaaa, #656565);
+ background:    -moz-linear-gradient( bottom, #aaaaaa, #656565);
+ background:     -ms-linear-gradient( bottom, #aaaaaa, #656565);
+ background:      -o-linear-gradient( bottom, #aaaaaa, #656565);
+ background:         linear-gradient( to top, #aaaaaa, #656565);
+}
+nav a
+{
+ display:block;
+ margin: -18px 0 15px -41px;
+ width: 110px;
+ height: 50px;
+ text-align: left;
+ border: 1px solid black;
+ background-color: grey;
+ text-decoration:none;
+ color:black;
+}
+
+nav li
+{
+ color:black;
+ list-style-type:none;
+}
+nav a:hover
+{
+ background: -webkit-linear-gradient( bottom, #aaaaaa, #656565);
+ background:    -moz-linear-gradient( bottom, #aaaaaa, #656565);
+ background:     -ms-linear-gradient( bottom, #aaaaaa, #656565);
+ background:      -o-linear-gradient( bottom, #aaaaaa, #656565);
+ background:         linear-gradient( to top, #aaaaaa, #656565);
+}
+
+
+
+section
+{
+ margin: 0 0 0 5px;
+ border-style: solid;
+ border-width: 1px;
+ border-color: #3f3f3f;
+}
+
+section#connection
+{
+ width: 200px;
+ height: 260px;
+ background-color: #ddb46e;
+ padding-left:5px;
+ display:block;
+ vertical-align:top;
+ margin-right: 75px;
+ float:left;
+}
+
+section#connection a
+{
+ text-decoration: none;
+ color: white;
+}
+
+section#connection a:hover
+{
+ text-decoration: underline;
+}
+
+section#day_card
+{
+ width: 250px;
+ height: 478px;
+ padding-left:10px;
+ background-color: #ddb46e;
+ display:block;
+ vertical-align:top;
+ float:left;
+ margin-top:287px;
+ margin-left:-282px;
+}
+
+section#centre
+{
+ width: 520px;
+ height:765px;
+ background-color:#ddb46e;
+ max-width:60%;
+ display:inline-block;
+ text-align:center;
+ margin: 0 60px 0 0;
+ float:right;
+}
+
+section#centre article
+{
+	max-height: 200px;
+	overflow:auto;
+}
+
+
+footer
+{
+ background: -webkit-linear-gradient( top, #949494, #656565);
+ background:    -moz-linear-gradient( top, #949494, #656565);
+ background:     -ms-linear-gradient( top, #949494, #656565);
+ background:      -o-linear-gradient( top, #949494, #656565);
+ background:         linear-gradient( to bottom, #949494, #656565);
+ padding-top:2px;
+ color: #ffffff;
+ font: bold 11px verdana, arial, sans-serif;
+ text-align: center;
+ height: 70px;
+ width: 989px;
+ border-radius: 2px; 
+ margin-top:10px;
+}
+
+footer li
+{
+ float: left;
+ margin: 5px 35px 0 0;
+}
+
+footer a
+{
+ font-size: 140%;
+ font-family: 'KaushanScriptRegular';
+ color: black; 
+ margin-left: 5px;
+}
+
+footer a:hover
+{
+ color: white;
+}

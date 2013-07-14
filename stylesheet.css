@@ -1,0 +1,305 @@
+@font-face 
+{
+    font-family: 'KaushanScriptRegular';
+    src: url('police\KaushanScript-Regular-webfont.eot');
+    src: url('police\KaushanScript-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('police\KaushanScript-Regular-webfont.woff') format('woff'),
+         url('police\KaushanScript-Regular-webfont.ttf') format('truetype'),
+         url('police\KaushanScript-Regular-webfont.svg#KaushanScriptRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body
+{
+ margin:0;
+}
+
+#global_container
+{
+ background-image: url("background.png");
+ margin: 0 auto;
+ width: 989px;
+ height: 1067px;
+ border-style:solid;
+ border-width:1px;
+ border-radius:2px;
+}
+
+#mid_container
+{
+ width: 989px;
+ height:766px;
+}
+
+a
+{
+	text-decoration: none;
+	color:black;
+}
+body
+{
+	width:100%;
+	background-image: url("background.png");
+}
+
+footer
+{
+	position: absolute;
+	top: 1070px;
+	background: -webkit-linear-gradient( top, #949494, #656565);
+	background:    -moz-linear-gradient( top, #949494, #656565);
+	background:     -ms-linear-gradient( top, #949494, #656565);
+	background:      -o-linear-gradient( top, #949494, #656565);
+	background:         linear-gradient( to bottom, #949494, #656565);
+	color: #ffffff;
+    font: bold 11px verdana, arial, sans-serif;
+	text-align: center;
+	margin: 1% 1% 1% 0;
+	height: 9%;
+	width: 100%;
+	min-height: 60px;
+	border-width:0;
+	border-style:none;
+	border-radius: 2px;	
+	
+}
+
+footer li
+{
+	float: left;
+	margin: 0 5% 0 0;
+}
+
+footer a
+{
+	font-size: 140%;
+	font-family: 'KaushanScriptRegular';
+	color: black; 
+	margin: 0 -5% 0 5%;
+}
+
+footer a:hover
+{
+	color: white;
+}
+
+
+nav
+{
+	z-index:2;
+	position: fixed;
+	background: -webkit-linear-gradient( top, #c0c0c0, #adadad);
+	background:    -moz-linear-gradient( top, #c0c0c0, #adadad);
+	background:     -ms-linear-gradient( top, #c0c0c0, #adadad);
+	background:      -o-linear-gradient( top, #c0c0c0, #adadad);
+	background:         linear-gradient( to bottom, #c0c0c0, #adadad);
+	top: 0%;
+	left: 200px;
+    font: bold 11px verdana, arial, sans-serif;
+    list-style-type: none;
+    width: 150%;
+	height: 5.4%;
+	min-height: 50px;
+    border: 1px solid black;
+    margin: auto;
+	overflow:auto;
+}
+
+nav li
+{
+    list-style-type: none;
+    float: left;
+
+	background: -webkit-linear-gradient( bottom, #aaaaaa, #656565);
+	background:    -moz-linear-gradient( bottom, #aaaaaa, #656565);
+	background:     -ms-linear-gradient( bottom, #aaaaaa, #656565);
+	background:      -o-linear-gradient( bottom, #aaaaaa, #656565);
+	background:         linear-gradient( to top, #aaaaaa, #656565);
+    margin: -0.3% 0 0 0.6%;
+    border: 1px solid black;
+}
+
+
+nav li.active
+{ 
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+ }
+ 
+ nav a
+ {
+    display: block;
+    color: #b82400;
+    text-decoration: none;
+    padding: 15px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
+ }
+ nav a:hover
+ {
+	background: -webkit-linear-gradient( top, #aaaaaa, #656565);
+	background:    -moz-linear-gradient( top, #aaaaaa, #656565);
+	background:     -ms-linear-gradient( top, #aaaaaa, #656565);
+	background:      -o-linear-gradient( top, #aaaaaa, #656565);
+	background:         linear-gradient( to bottom, #aaaaaa, #656565);
+}
+nav ul li a
+{
+	position: relative;
+}
+nav ul li a::before
+{
+   content: '';
+   position: absolute;
+   left: 50%;
+   bottom: 6px;
+   margin-left: -2px;
+   width: 4px;
+   height: 4px;
+   border-radius: 50%;
+   background: rgba(0, 0, 0, .5);
+}
+
+nav ul li a:hover::before,
+nav ul li a:focus::before{
+   background: white;
+   box-shadow: 0 0 2px white, 
+               0 -1px 0 rgba(0, 0, 0, .4);
+}
+
+#ressource
+{
+	z-index:3;
+	position: fixed;
+	top: 0px;
+	left: -30px;
+	font: bold 11px verdana, arial, sans-serif;
+    list-style-type: none;
+	height: 5.4%;
+	width: 15%;
+	min-height: 50px;
+	min-width: 240px;
+    border: 1px solid black;
+	background-color: grey;
+}
+#ressource li
+{
+	list-style-type: none;
+    float: left;
+    background-color: grey;
+    margin: 1% 1% 0 3%;
+}
+
+#player_xp
+{
+	z-index:3;
+	position: fixed;
+	top: 0px;
+	left: 1425px;
+	font: bold 11px verdana, arial, sans-serif;
+    list-style-type: none;
+	height: 5.4%;
+	width: 13.5%;
+	min-height: 50px;
+	min-width: 215px;
+    border: 1px solid black;
+	background-color: grey;
+}
+
+#player_xp li
+{
+	list-style-type: none;
+    float: left;
+    background-color: grey;
+    margin: 1% 1% 0 3%;
+}
+
+#logo_in
+{
+	z-index:3;
+	position: fixed;
+	top: 0px;
+	left: 1010px;
+	font: bold 11px verdana, arial, sans-serif;
+    list-style-type: none;
+	height: 5.4%;
+	width: 15%;
+	min-height: 50px;
+	min-width: 400px;
+    border: 1px solid black;
+	background-color: grey;
+}
+
+#buttons
+{
+	display:block;
+	position: fixed;
+	z-index:3;
+	left:92%;
+	top:15px;
+}
+#buttons a
+{
+	text-decoration:none;
+}
+#buttons li
+{
+	list-style-type:none;
+	float:left;
+	margin-right:10px;
+}
+
+
+
+section
+{
+	padding-top: 45px;
+}
+
+.guild_table td,
+.guild_table
+{
+	border: 1px solid black;	
+}
+
+section
+{
+	text-align:center;
+}
+section table
+{
+	margin-left:40%;
+	border-collapse:collapse;
+	width: 23%;
+	background-color: #e7b577;
+}
+section table a:hover
+{
+	color: white;
+}
+
+.building_section
+{
+	padding-top:0;
+	margin-left:40px;
+	border: 1px solid black;
+	width:900px;
+	height:150px;
+}
+
+.building_section article
+{
+	margin-top:-15px;
+	width:600px;
+	height:150px;
+}
+
+.building_section aside
+{
+	margin-top:-30px;
+	background-image: url("building.jpg");
+	width:300px;
+	height:80px;
+	float:left;
+}
