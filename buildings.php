@@ -39,7 +39,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_air">
 <p>The elementary forge of air.</p>
+<form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
 <p><input type="submit" value="Upgrade !" id="button_air" /></p>
+</form>
 <aside>
 </aside>
 </article>
