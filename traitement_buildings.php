@@ -18,6 +18,13 @@ echo "</script>";
 ?>
 
 <?php
+if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] = false)
+{
+redir("index.php");
+}
+?>
+
+<?php
 if (isset $_SESSION['id'])
   {
   //First, connect to the database.
@@ -110,6 +117,10 @@ if (isset $_SESSION['id'])
           'wood'   => $wood;
           'userid' => $_SESSION['id'];
           ));
+        }
+      else
+        {
+          redir("home_page.php");
         }
       }
     //AIR FORGE END
