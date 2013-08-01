@@ -73,19 +73,51 @@ if (isset $_SESSION['id'])
   }
   //END OF DATABASE READING
   
-  //START OF BUILDING LEVEL UP
-  if (isset $_POST['button_air'])
-  {
-    $aircost   = (int) $levelair * $levelair * 10 + $levelair * 100;
-    $earthcost = (int) $aircost / 2;
-    $stonecost = (int) $aircost / 4;
-    $woodcost  = (int) $aircost / 8;
-    if ($air >= $aircost AND $earth >= $earthcost)//TODO : Level up building, remove ressources and write to database new values.
-  }
-else
-  {
-    //TODO : Redir to buildings page
-  }
+  if (isset $_SESSION['id'])
+    {
+    //START OF BUILDING LEVEL UP
+    
+    //CITY
+    if (isset $_POST['button_city'])
+      {
+        
+      }
+    //CITY END
+    
+    //AIR FORGE
+    else if (isset $_POST['button_air'])
+      {
+      $aircost   = (int) $levelair * $levelair * 10 + $levelair * 100;
+      $earthcost = (int) $aircost / 2;
+      $stonecost = (int) $aircost / 4;
+      $woodcost  = (int) $aircost / 8;
+      if ($air >= $aircost AND $earth >= $earthcost AND $stone >= $stonecost AND $wood >= $woodcost)
+        {
+        $levelair += 1;
+        $stone -= $stonecost;
+        $wood -= $woodcost;
+        
+        $reqwrite = $bdd->prepare('UPDATE buildings SET levelair = :level WHERE userid = :userid');
+        $reqwrite -> execute(array
+          ( 
+          'level'  => $levelair,
+          'userid' => $_SESSION['id']
+          ));
+        $reqwrite = $bdd->prepare('UPDATE buildings SET stone = :stone, wood = :wood WHERE userid = :userid');
+        $reqwrite -> execute(array
+          (
+          'stone'  => $stone;
+          'wood'   => $wood;
+          'userid' => $_SESSION['id'];
+          ));
+        }
+      }
+    //AIR FORGE END
+    
+    else if
+      {
+      //TODO : Redir to buildings page
+      }
   
   //MAIN TODO : REPEAT FOR ALL BUILDINGS. Yay.
 ?>
