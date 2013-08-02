@@ -30,7 +30,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_city">
 <p>The overall size and strength of your city.</p>
-<p><input type="submit" value="Upgrade !" id="button_city" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_city' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
@@ -50,7 +52,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_earth">
 <p>The elementary forge of earth.</p>
-<p><input type="submit" value="Upgrade !" id="button_earth" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_earth' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
@@ -59,7 +63,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_fire">
 <p>The elementary forge of fire.</p>
-<p><input type="submit" value="Upgrade !" id="button_fire" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_fire' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
@@ -68,7 +74,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_water">
 <p>The elementary forge of water.</p>
-<p><input type="submit" value="Upgrade !" id="button_water" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_air' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
@@ -77,7 +85,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_wood">
 <p>Where your heroes collect wood.</p>
-<p><input type="submit" value="Upgrade !" id="button_wood" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_wood' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
@@ -86,7 +96,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_stone">
 <p>Where your heroes collect stone.</p>
-<p><input type="submit" value="Upgrade !" id="button_stone" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_stone' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
@@ -95,7 +107,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_iron">
 <p>Where your heroes collect iron.</p>
-<p><input type="submit" value="Upgrade !" id="button_iron" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_iron' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
@@ -104,7 +118,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_quartz">
 <p>Where your heroes collect quartz.</p>
-<p><input type="submit" value="Upgrade !" id="button_quartz" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_quartz' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
@@ -113,7 +129,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_armory">
 <p>This is the armory, where you summon heros, create and repair equipment.</p>
-<p><input type="submit" value="Upgrade !" id="button_armory" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_armory' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
@@ -122,7 +140,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_houses">
 <p>This is where your heroes live and rest.</p>
-<p><input type="submit" value="Upgrade !" id="button_houses" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_houses' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
@@ -131,7 +151,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_temple">
 <p>This is where your heroes pray to the gods and gain faith.</p>
-<p><input type="submit" value="Upgrade !" id="button_temple" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_temple' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
@@ -140,7 +162,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_baths">
 <p>This is where your citizens relax and gain happiness.</p>
-<p><input type="submit" value="Upgrade !" id="button_baths" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_baths' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
@@ -149,7 +173,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_market">
 <p>This is zhere your citizens exchange goods and gold.</p>
-<p><input type="submit" value="Upgrade !" id="button_market" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_market' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
@@ -158,7 +184,9 @@ redir("index.php");
 <section class="building_section">
 <article class="building_forum">
 <p>This building is where ambassadors from other cities gather to make pacts and treaties.</p>
-<p><input type="submit" value="Upgrade !" id="button_forum" /></p>
+<form action="traitement_buildings.php" method="post">
+<p><input type="submit" name='button_forum' value="Upgrade !" /></p>
+</form>
 <aside>
 </aside>
 </article>
