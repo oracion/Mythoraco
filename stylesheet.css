@@ -285,7 +285,7 @@ section table a:hover
 	margin-left:40px;
 	border: 1px solid black;
 	width:900px;
-	height:250px;
+	height:350px;
 }
 
 .building_section article
@@ -300,6 +300,6 @@ section table a:hover
 	margin-top:-30px;
 	background-image: url("building.jpg");
 	width:300px;
-	height:180px;
+	height:280px;
 	float:left;
 }
