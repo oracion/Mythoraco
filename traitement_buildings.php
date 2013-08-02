@@ -74,6 +74,7 @@ if (isset $_SESSION['id'])
     $wood = $donnees['wood'];
     $iron = $donnees['iron'];
     $quartz = $donnees['quartz'];
+    $gold = $donnees['gold'];
     $happiness = $donnees['happiness'];
     }
   //END OF RESSOURCES RETRIEVAL CODE
@@ -87,14 +88,48 @@ if (isset $_SESSION['id'])
     //CITY
     if (isset $_POST['button_city'])
       {
+      $ressourcecost = (int) ($levelcity * $levelcity * 10 + $levelcity * 100) * 1.8;
+      $goldcost      = (int) $ressourcecost / 2;
+      
+      if ($wood >= $ressourcecost AND $iron >= $ressourcecost AND $stone >= $ressourcecost AND $quartz >= $ressourcecost AND $gold >= $goldcost)
+        {
+        $levelcity += 1;
+        $stone  -= $ressourcecost;
+        $wood   -= $ressourcecost;
+        $iron   -= $ressourcecost;
+        $quartz -= $ressourcecost;
+        $gold   -= $goldcost;
         
+        $reqwrite = $bdd->prepare('UPDATE buildings SET levelcity = :level WHERE userid = :userid');
+        $reqwrite -> execute(array
+          ( 
+          'level'  => $levelcity,
+          'userid' => $_SESSION['id']
+          ));
+        $reqwrite = $bdd->prepare('UPDATE buildings 
+                                   SET stone = :stone, wood = :wood, iron = :iron, quartz = :quartz, gold = :gold 
+                                   WHERE userid = :userid');
+        $reqwrite -> execute(array
+          (
+          'stone'  => $stone,
+          'wood'   => $wood,
+          'iron'   => $iron,
+          'quartz' => $quartz,
+          'gold'   => $gold,
+          'userid' => $_SESSION['id']
+          ));
+        }
+      else
+        {
+          redir("home_page.php");
+        }
       }
     //CITY END
     
     //AIR FORGE
     else if (isset $_POST['button_air'])
       {
-      $aircost   = (int) $levelair * $levelair * 10 + $levelair * 100;
+      $aircost   = (int) $levelair * $levelair * 8 + $levelair * 100;
       $earthcost = (int) $aircost / 2;
       $stonecost = (int) $aircost / 4;
       $woodcost  = (int) $aircost / 8;
@@ -113,9 +148,9 @@ if (isset $_SESSION['id'])
         $reqwrite = $bdd->prepare('UPDATE buildings SET stone = :stone, wood = :wood WHERE userid = :userid');
         $reqwrite -> execute(array
           (
-          'stone'  => $stone;
-          'wood'   => $wood;
-          'userid' => $_SESSION['id'];
+          'stone'  => $stone,
+          'wood'   => $wood,
+          'userid' => $_SESSION['id']
           ));
         }
       else
@@ -125,10 +160,47 @@ if (isset $_SESSION['id'])
       }
     //AIR FORGE END
     
-    else if
+    //EARTH FORGE
+    //EARTH FORGE END
+    
+    //FIRE FORGE
+    //FIRE FORGE END
+    
+    //WATER FORGE
+    //WATER FORGE END
+    
+    //QUARRY
+    //QUARRY END
+    
+    //SAWMILL
+    //SAWMILL END
+    
+    //IRON MINE
+    //IRON MINE END
+    
+    //QUARTZ MINE
+    //QUARTZ MINE END
+    
+    //HOUSES
+    //HOUSES END
+    
+    //TEMPLE
+    //TEMPLE END
+    
+    //BATHS
+    //BATHS END
+    
+    //MARKET
+    //MARKET END
+    
+    //FORUM
+    //FORUM END
+    
+    }
+    else
       {
-      //TODO : Redir to buildings page
+      redir("home_page.php");
       }
   
-  //MAIN TODO : REPEAT FOR ALL BUILDINGS. Yay.
+  /* ==================MAIN TODO : REPEAT FOR ALL BUILDINGS. Yay.======================*/
 ?>
