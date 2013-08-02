@@ -229,12 +229,119 @@ if (isset $_SESSION['id'])
     //FIRE FORGE END
     
     //WATER FORGE
+    else if (isset $_POST['button_water'])
+      {
+      $watercost   = (int) $levelwater * $levelwater * 8 + $levelwater * 100;
+      $firecost    = (int) $watercost / 2;
+      $quartzcost  = (int) $watercost  / 4;
+      $ironcost    = (int) $watercost  / 8;
+      if ($fire >= $firecost AND $water >= $watercost AND $iron >= $ironcost AND $quartz >= $quartzcost)
+        {
+        $levelwater += 1;
+        $iron -= $ironcost;
+        $quartz -= $quartzcost;
+        
+        $reqwrite = $bdd->prepare('UPDATE buildings SET levelwater = :level WHERE userid = :userid');
+        $reqwrite -> execute(array
+          ( 
+          'level'  => $levelwater,
+          'userid' => $_SESSION['id']
+          ));
+        $reqwrite = $bdd->prepare('UPDATE buildings SET iron = :iron, quartz = :quartz WHERE userid = :userid');
+        $reqwrite -> execute(array
+          (
+          'iron'   => $iron,
+          'quartz' => $quartz,
+          'userid' => $_SESSION['id']
+          ));
+        }
+      else
+        {
+          redir("home_page.php");
+        }
+      }
     //WATER FORGE END
     
     //QUARRY
+    else if (isset $_POST['button_stone'])
+      {
+      $ironcost    = (int) ($levelquarry * $levelquarry * 10 + $levelquarry * 100) * 1.8;
+      $stonecost   = (int) $ironcost / 2;
+      $woodcost    = (int) $ironcost / 4;
+      $quartzcost  = (int) $ironcost / 8;
+      if ($iron >= $ironcost AND $stone >= $stonecost AND $wood >= $woodcost AND $quartz >= $quartzcost)
+        {
+        $levelquarry += 1;
+        $wood   -= $woodcost;
+        $stone  -= $stonecost;
+        $iron   -= $ironcost;
+        $quartz -= $quartzcost;
+        
+        $reqwrite = $bdd->prepare('UPDATE buildings SET levelquarry = :level WHERE userid = :userid');
+        $reqwrite -> execute(array
+          ( 
+          'level'  => $levelquarry,
+          'userid' => $_SESSION['id']
+          ));
+        $reqwrite = $bdd->prepare('
+        UPDATE buildings 
+        SET wood = :wood, stone = :stone, iron = :iron, quartz = :quartz 
+        WHERE userid = :userid');
+        $reqwrite -> execute(array
+          (
+          'wood'   => $wood,
+          'stone'  => $stone,
+          'iron'   => $iron,
+          'quartz' => $quartz,
+          'userid' => $_SESSION['id']
+          ));
+        }
+      else
+        {
+          redir("home_page.php");
+        }
+      }
     //QUARRY END
     
     //SAWMILL
+    else if (isset $_POST['button_wood'])
+      {
+      $ironcost    = (int) $stonecost / 4;
+      $stonecost   = (int) ($levelsawmill * $levelsawmill * 10 + $levelsawmill * 100) * 1.8;
+      $woodcost    = (int) $stonecost / 2;
+      $quartzcost  = (int) $stonecost / 8;
+      if ($iron >= $ironcost AND $stone >= $stonecost AND $wood >= $woodcost AND $quartz >= $quartzcost)
+        {
+        $levelsawmill += 1;
+        $wood   -= $woodcost;
+        $stone  -= $stonecost;
+        $iron   -= $ironcost;
+        $quartz -= $quartzcost;
+        
+        $reqwrite = $bdd->prepare('UPDATE buildings SET levelsawmill = :level WHERE userid = :userid');
+        $reqwrite -> execute(array
+          ( 
+          'level'  => $levelsawmill,
+          'userid' => $_SESSION['id']
+          ));
+        $reqwrite = $bdd->prepare('
+        UPDATE buildings 
+        SET wood = :wood, stone = :stone, iron = :iron, quartz = :quartz 
+        WHERE userid = :userid');
+        $reqwrite -> execute(array
+          (
+          'wood'   => $wood,
+          'stone'  => $stone,
+          'iron'   => $iron,
+          'quartz' => $quartz,
+          'userid' => $_SESSION['id']
+          ));
+        }
+      else
+        {
+          redir("home_page.php");
+        }
+      }
     //SAWMILL END
     
     //IRON MINE
