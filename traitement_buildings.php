@@ -571,16 +571,84 @@ if (isset $_SESSION['id'])
     //BATHS END
     
     //MARKET
+    else if (isset $_POST['button_market'])
+      {
+      $ressourcecost    = (int) ($levelquartz * $levelquartz * 8 + $levelquartz * 90) * 1.7;
+      if ($iron >= $ressourcecost AND $stone >= $ressourcecost AND $wood >= $ressourcecost AND $quartz >= $ressourcecost)
+        {
+        $levelmarket += 1;
+        $wood   -= $woodcost;
+        $stone  -= $stonecost;
+        $iron   -= $ironcost;
+        $quartz -= $quartzcost;
+        
+        $reqwrite = $bdd->prepare('UPDATE buildings SET levelmarket = :level WHERE userid = :userid');
+        $reqwrite -> execute(array
+          ( 
+          'level'  => $levelmarket,
+          'userid' => $_SESSION['id']
+          ));
+        $reqwrite = $bdd->prepare('
+        UPDATE ressources 
+        SET wood = :wood, stone = :stone, iron = :iron, quartz = :quartz 
+        WHERE userid = :userid');
+        $reqwrite -> execute(array
+          (
+          'wood'   => $wood,
+          'stone'  => $stone,
+          'iron'   => $iron,
+          'quartz' => $quartz,
+          'userid' => $_SESSION['id']
+          ));
+        }
+      else
+        {
+          redir("home_page.php");
+        }
+      }
     //MARKET END
     
     //FORUM
+    else if (isset $_POST['button_forum'])
+      {
+      $ressourcecost    = (int) ($levelquartz * $levelquartz * 12 + $levelquartz * 150) * 2;
+      if ($iron >= $ressourcecost AND $stone >= $ressourcecost AND $wood >= $ressourcecost AND $quartz >= $ressourcecost)
+        {
+        $levelforum += 1;
+        $wood   -= $woodcost;
+        $stone  -= $stonecost;
+        $iron   -= $ironcost;
+        $quartz -= $quartzcost;
+        
+        $reqwrite = $bdd->prepare('UPDATE buildings SET levelforum = :level WHERE userid = :userid');
+        $reqwrite -> execute(array
+          ( 
+          'level'  => $levelforum,
+          'userid' => $_SESSION['id']
+          ));
+        $reqwrite = $bdd->prepare('
+        UPDATE ressources 
+        SET wood = :wood, stone = :stone, iron = :iron, quartz = :quartz 
+        WHERE userid = :userid');
+        $reqwrite -> execute(array
+          (
+          'wood'   => $wood,
+          'stone'  => $stone,
+          'iron'   => $iron,
+          'quartz' => $quartz,
+          'userid' => $_SESSION['id']
+          ));
+        }
+      else
+        {
+          redir("home_page.php");
+        }
+      }
     //FORUM END
-    
+    //END BUILDING LEVEL UP
     }
     else
       {
       redir("home_page.php");
       }
-  
-  /* ==================MAIN TODO : REPEAT FOR ALL BUILDINGS. Yay.======================*/
 ?>
