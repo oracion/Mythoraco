@@ -106,7 +106,7 @@ if (isset $_SESSION['id'])
           'level'  => $levelcity,
           'userid' => $_SESSION['id']
           ));
-        $reqwrite = $bdd->prepare('UPDATE buildings 
+        $reqwrite = $bdd->prepare('UPDATE ressources
                                    SET stone = :stone, wood = :wood, iron = :iron, quartz = :quartz, gold = :gold 
                                    WHERE userid = :userid');
         $reqwrite -> execute(array
@@ -145,7 +145,7 @@ if (isset $_SESSION['id'])
           'level'  => $levelair,
           'userid' => $_SESSION['id']
           ));
-        $reqwrite = $bdd->prepare('UPDATE buildings SET stone = :stone, wood = :wood WHERE userid = :userid');
+        $reqwrite = $bdd->prepare('UPDATE ressources SET stone = :stone, wood = :wood WHERE userid = :userid');
         $reqwrite -> execute(array
           (
           'stone'  => $stone,
@@ -179,7 +179,7 @@ if (isset $_SESSION['id'])
           'level'  => $levelearth,
           'userid' => $_SESSION['id']
           ));
-        $reqwrite = $bdd->prepare('UPDATE buildings SET stone = :stone, wood = :wood WHERE userid = :userid');
+        $reqwrite = $bdd->prepare('UPDATE ressources SET stone = :stone, wood = :wood WHERE userid = :userid');
         $reqwrite -> execute(array
           (
           'stone'  => $stone,
@@ -213,7 +213,7 @@ if (isset $_SESSION['id'])
           'level'  => $levelfire,
           'userid' => $_SESSION['id']
           ));
-        $reqwrite = $bdd->prepare('UPDATE buildings SET iron = :iron, quartz = :quartz WHERE userid = :userid');
+        $reqwrite = $bdd->prepare('UPDATE ressources SET iron = :iron, quartz = :quartz WHERE userid = :userid');
         $reqwrite -> execute(array
           (
           'iron'   => $iron,
@@ -247,7 +247,7 @@ if (isset $_SESSION['id'])
           'level'  => $levelwater,
           'userid' => $_SESSION['id']
           ));
-        $reqwrite = $bdd->prepare('UPDATE buildings SET iron = :iron, quartz = :quartz WHERE userid = :userid');
+        $reqwrite = $bdd->prepare('UPDATE ressources SET iron = :iron, quartz = :quartz WHERE userid = :userid');
         $reqwrite -> execute(array
           (
           'iron'   => $iron,
@@ -284,7 +284,7 @@ if (isset $_SESSION['id'])
           'userid' => $_SESSION['id']
           ));
         $reqwrite = $bdd->prepare('
-        UPDATE buildings 
+        UPDATE ressources
         SET wood = :wood, stone = :stone, iron = :iron, quartz = :quartz 
         WHERE userid = :userid');
         $reqwrite -> execute(array
@@ -306,8 +306,8 @@ if (isset $_SESSION['id'])
     //SAWMILL
     else if (isset $_POST['button_wood'])
       {
-      $ironcost    = (int) $stonecost / 4;
       $stonecost   = (int) ($levelsawmill * $levelsawmill * 10 + $levelsawmill * 100) * 1.8;
+      $ironcost    = (int) $stonecost / 4;
       $woodcost    = (int) $stonecost / 2;
       $quartzcost  = (int) $stonecost / 8;
       if ($iron >= $ironcost AND $stone >= $stonecost AND $wood >= $woodcost AND $quartz >= $quartzcost)
@@ -325,7 +325,7 @@ if (isset $_SESSION['id'])
           'userid' => $_SESSION['id']
           ));
         $reqwrite = $bdd->prepare('
-        UPDATE buildings 
+        UPDATE ressources
         SET wood = :wood, stone = :stone, iron = :iron, quartz = :quartz 
         WHERE userid = :userid');
         $reqwrite -> execute(array
@@ -345,9 +345,85 @@ if (isset $_SESSION['id'])
     //SAWMILL END
     
     //IRON MINE
+    else if (isset $_POST['button_iron'])
+      {
+      $quartzcost  = (int) ($leveliron * $leveliron * 10 + $leveliron * 100) * 1.8;
+      $ironcost    = (int) $quartzcost / 2;
+      $stonecost   = (int) $quartzcost / 8;
+      $woodcost    = (int) $quartzcost / 4;
+      if ($iron >= $ironcost AND $stone >= $stonecost AND $wood >= $woodcost AND $quartz >= $quartzcost)
+        {
+        $leveliron += 1;
+        $wood   -= $woodcost;
+        $stone  -= $stonecost;
+        $iron   -= $ironcost;
+        $quartz -= $quartzcost;
+        
+        $reqwrite = $bdd->prepare('UPDATE buildings SET leveliron = :level WHERE userid = :userid');
+        $reqwrite -> execute(array
+          ( 
+          'level'  => $leveliron,
+          'userid' => $_SESSION['id']
+          ));
+        $reqwrite = $bdd->prepare('
+        UPDATE ressources
+        SET wood = :wood, stone = :stone, iron = :iron, quartz = :quartz 
+        WHERE userid = :userid');
+        $reqwrite -> execute(array
+          (
+          'wood'   => $wood,
+          'stone'  => $stone,
+          'iron'   => $iron,
+          'quartz' => $quartz,
+          'userid' => $_SESSION['id']
+          ));
+        }
+      else
+        {
+          redir("home_page.php");
+        }
+      }
     //IRON MINE END
     
     //QUARTZ MINE
+    else if (isset $_POST['button_quartz'])
+      {
+      $woodcost    = (int) ($levelquartz * $levelquartz * 10 + $levelquartz * 100) * 1.8;
+      $quartzcost  = (int) $woodcost / 2;
+      $ironcost    = (int) $woodcost / 8;
+      $stonecost   = (int) $woodcost / 4;
+      if ($iron >= $ironcost AND $stone >= $stonecost AND $wood >= $woodcost AND $quartz >= $quartzcost)
+        {
+        $levelquartz += 1;
+        $wood   -= $woodcost;
+        $stone  -= $stonecost;
+        $iron   -= $ironcost;
+        $quartz -= $quartzcost;
+        
+        $reqwrite = $bdd->prepare('UPDATE buildings SET levelquartz = :level WHERE userid = :userid');
+        $reqwrite -> execute(array
+          ( 
+          'level'  => $levelquartz,
+          'userid' => $_SESSION['id']
+          ));
+        $reqwrite = $bdd->prepare('
+        UPDATE ressources 
+        SET wood = :wood, stone = :stone, iron = :iron, quartz = :quartz 
+        WHERE userid = :userid');
+        $reqwrite -> execute(array
+          (
+          'wood'   => $wood,
+          'stone'  => $stone,
+          'iron'   => $iron,
+          'quartz' => $quartz,
+          'userid' => $_SESSION['id']
+          ));
+        }
+      else
+        {
+          redir("home_page.php");
+        }
+      }
     //QUARTZ MINE END
     
     //HOUSES
