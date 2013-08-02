@@ -89,7 +89,7 @@ if (isset $_SESSION['id'])
     if (isset $_POST['button_city'])
       {
       $ressourcecost = (int) ($levelcity * $levelcity * 10 + $levelcity * 100) * 1.8;
-      $goldcost      = (int) $ressourcecost / 2;
+      $goldcost      = (int) pow($levelcity, 2) * 3;
       
       if ($wood >= $ressourcecost AND $iron >= $ressourcecost AND $stone >= $ressourcecost AND $quartz >= $ressourcecost AND $gold >= $goldcost)
         {
@@ -427,6 +427,39 @@ if (isset $_SESSION['id'])
     //QUARTZ MINE END
     
     //HOUSES
+    else if (isset $_POST['button_houses'])
+      {
+      $woodcost    = (int) ($levelhouse * $levelhouse * 5 + $levelhouse * 80) * 1.5;
+      $stonecost   = (int) $woodcost;
+      $firecost    = (int) $woodcost / 4;
+      if ($fire >= $firecost AND $stone >= $stonecost AND $wood >= $woodcost)
+        {
+        $levelhouse += 1;
+        $wood   -= $woodcost;
+        $stone  -= $stonecost;
+        
+        $reqwrite = $bdd->prepare('UPDATE buildings SET levelhouse = :level WHERE userid = :userid');
+        $reqwrite -> execute(array
+          ( 
+          'level'  => $levelhouse,
+          'userid' => $_SESSION['id']
+          ));
+        $reqwrite = $bdd->prepare('
+        UPDATE ressources 
+        SET wood = :wood, stone = :stone 
+        WHERE userid = :userid');
+        $reqwrite -> execute(array
+          (
+          'wood'   => $wood,
+          'stone'  => $stone,
+          'userid' => $_SESSION['id']
+          ));
+        }
+      else
+        {
+          redir("home_page.php");
+        }
+      }
     //HOUSES END
     
     //TEMPLE
