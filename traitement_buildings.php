@@ -431,8 +431,8 @@ if (isset $_SESSION['id'])
       {
       $woodcost    = (int) ($levelhouse * $levelhouse * 5 + $levelhouse * 80) * 1.5;
       $stonecost   = (int) $woodcost;
-      $firecost    = (int) $woodcost / 4;
-      if ($fire >= $firecost AND $stone >= $stonecost AND $wood >= $woodcost)
+      $earthcost   = (int) $woodcost / 4;
+      if ($earth >= $earthcost AND $stone >= $stonecost AND $wood >= $woodcost)
         {
         $levelhouse += 1;
         $wood   -= $woodcost;
@@ -463,9 +463,111 @@ if (isset $_SESSION['id'])
     //HOUSES END
     
     //TEMPLE
+    else if (isset $_POST['button_temple'])
+      {
+      $stonecost    = (int) ($leveltemple * $leveltemple * 5 + $leveltemple * 80) * 1.5;
+      $quartzcost   = (int) $stonecost;
+      $aircost      = (int) $stonecost / 4;
+      if ($air >= $aircost AND $stone >= $stonecost AND $quartz >= $quartzcost)
+        {
+        $leveltemple += 1;
+        $stone   -= $stonecost;
+        $quartz  -= $quartzcost;
+        
+        $reqwrite = $bdd->prepare('UPDATE buildings SET leveltemple = :level WHERE userid = :userid');
+        $reqwrite -> execute(array
+          ( 
+          'level'  => $leveltemple,
+          'userid' => $_SESSION['id']
+          ));
+        $reqwrite = $bdd->prepare('
+        UPDATE ressources 
+        SET quartz = :quartz, stone = :stone 
+        WHERE userid = :userid');
+        $reqwrite -> execute(array
+          (
+          'quartz'  => $quartz,
+          'stone'   => $stone,
+          'userid'  => $_SESSION['id']
+          ));
+        }
+      else
+        {
+          redir("home_page.php");
+        }
+      }
     //TEMPLE END
     
+    //ARMORY
+    else if (isset $_POST['button_armory'])
+      {
+      $ironcost    = (int) ($levelarmory * $levelarmory * 5 + $levelarmory * 80) * 1.5;
+      $quartzcost  = (int) $ironcost;
+      $firecost    = (int) $ironcost / 4;
+      if ($fire >= $firecost AND $iron >= $ironcost AND $quartz >= $quartzcost)
+        {
+        $levelarmory += 1;
+        $iron    -= $ironcost;
+        $quartz  -= $quartzcost;
+        
+        $reqwrite = $bdd->prepare('UPDATE buildings SET levelarmory = :level WHERE userid = :userid');
+        $reqwrite -> execute(array
+          ( 
+          'level'  => $levelarmory,
+          'userid' => $_SESSION['id']
+          ));
+        $reqwrite = $bdd->prepare('
+        UPDATE ressources 
+        SET quartz = :quartz, iron = :iron
+        WHERE userid = :userid');
+        $reqwrite -> execute(array
+          (
+          'quartz'  => $quartz,
+          'iron'    => $iron,
+          'userid'  => $_SESSION['id']
+          ));
+        }
+      else
+        {
+          redir("home_page.php");
+        }
+      }
+    //ARMORY END
+    
     //BATHS
+    else if (isset $_POST['button_baths'])
+      {
+      $stonecost  = (int) ($levelbath * $levelbath * 5 + $levelbath * 80) * 1.5;
+      $woodcost   = (int) $stonecost;
+      $watercost  = (int) $stonecost / 4;
+      if ($water >= $watercost AND $stone >= $stonecost AND $wood >= $woodcost)
+        {
+        $levelbath += 1;
+        $stone -= $stonecost;
+        $wood  -= $woodcost;
+        
+        $reqwrite = $bdd->prepare('UPDATE buildings SET levelbath = :level WHERE userid = :userid');
+        $reqwrite -> execute(array
+          ( 
+          'level'  => $levelbath,
+          'userid' => $_SESSION['id']
+          ));
+        $reqwrite = $bdd->prepare('
+        UPDATE ressources 
+        SET stone = :stone, wood = :wood
+        WHERE userid = :userid');
+        $reqwrite -> execute(array
+          (
+          'stone'   => $stone,
+          'wood'    => $wood,
+          'userid'  => $_SESSION['id']
+          ));
+        }
+      else
+        {
+          redir("home_page.php");
+        }
+      }
     //BATHS END
     
     //MARKET
