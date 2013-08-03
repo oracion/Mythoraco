@@ -18,6 +18,8 @@ echo "</script>";
 ?>
 
 <?php
+session_start();
+
 if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] = false)
 {
 redir("index.php");
@@ -25,7 +27,7 @@ redir("index.php");
 ?>
 
 <?php
-if (isset $_SESSION['id'])
+if (isset ($_SESSION['id']))
   {
   //First, connect to the database.
   try 
@@ -81,12 +83,12 @@ if (isset $_SESSION['id'])
   }
   //END OF DATABASE READING
   
-  if (isset $_SESSION['id'])
+  if (isset ($_SESSION['id']))
     {
     //START OF BUILDING LEVEL UP
     
     //CITY
-    if (isset $_POST['button_city'])
+    if (isset ($_POST['button_city']))
       {
       $ressourcecost = (int) ($levelcity * $levelcity * 10 + $levelcity * 100) * 1.8;
       $goldcost      = (int) pow($levelcity, 2) * 3;
@@ -127,7 +129,7 @@ if (isset $_SESSION['id'])
     //CITY END
     
     //AIR FORGE
-    else if (isset $_POST['button_air'])
+    else if (isset ($_POST['button_air']))
       {
       $aircost   = (int) $levelair * $levelair * 8 + $levelair * 100;
       $earthcost = (int) $aircost / 2;
@@ -161,7 +163,7 @@ if (isset $_SESSION['id'])
     //AIR FORGE END
     
     //EARTH FORGE
-    else if (isset $_POST['button_earth'])
+    else if (isset ($_POST['button_earth']))
       {
       $earthcost = (int) $levelearth * $levelearth * 8 + $levelearth * 100;
       $aircost   = (int) $earthcost / 2;
@@ -195,7 +197,7 @@ if (isset $_SESSION['id'])
     //EARTH FORGE END
     
     //FIRE FORGE
-    else if (isset $_POST['button_fire'])
+    else if (isset ($_POST['button_fire']))
       {
       $firecost    = (int) $levelfire * $levelfire * 8 + $levelfire * 100;
       $watercost   = (int) $firecost / 2;
@@ -229,7 +231,7 @@ if (isset $_SESSION['id'])
     //FIRE FORGE END
     
     //WATER FORGE
-    else if (isset $_POST['button_water'])
+    else if (isset ($_POST['button_water']))
       {
       $watercost   = (int) $levelwater * $levelwater * 8 + $levelwater * 100;
       $firecost    = (int) $watercost / 2;
@@ -263,7 +265,7 @@ if (isset $_SESSION['id'])
     //WATER FORGE END
     
     //QUARRY
-    else if (isset $_POST['button_stone'])
+    else if (isset ($_POST['button_stone']))
       {
       $ironcost    = (int) ($levelquarry * $levelquarry * 10 + $levelquarry * 100) * 1.8;
       $stonecost   = (int) $ironcost / 2;
@@ -304,7 +306,7 @@ if (isset $_SESSION['id'])
     //QUARRY END
     
     //SAWMILL
-    else if (isset $_POST['button_wood'])
+    else if (isset ($_POST['button_wood']))
       {
       $stonecost   = (int) ($levelsawmill * $levelsawmill * 10 + $levelsawmill * 100) * 1.8;
       $ironcost    = (int) $stonecost / 4;
@@ -345,7 +347,7 @@ if (isset $_SESSION['id'])
     //SAWMILL END
     
     //IRON MINE
-    else if (isset $_POST['button_iron'])
+    else if (isset ($_POST['button_iron']))
       {
       $quartzcost  = (int) ($leveliron * $leveliron * 10 + $leveliron * 100) * 1.8;
       $ironcost    = (int) $quartzcost / 2;
@@ -386,7 +388,7 @@ if (isset $_SESSION['id'])
     //IRON MINE END
     
     //QUARTZ MINE
-    else if (isset $_POST['button_quartz'])
+    else if (isset ($_POST['button_quartz']))
       {
       $woodcost    = (int) ($levelquartz * $levelquartz * 10 + $levelquartz * 100) * 1.8;
       $quartzcost  = (int) $woodcost / 2;
@@ -427,7 +429,7 @@ if (isset $_SESSION['id'])
     //QUARTZ MINE END
     
     //HOUSES
-    else if (isset $_POST['button_houses'])
+    else if (isset ($_POST['button_houses']))
       {
       $woodcost    = (int) ($levelhouse * $levelhouse * 5 + $levelhouse * 80) * 1.5;
       $stonecost   = (int) $woodcost;
@@ -463,7 +465,7 @@ if (isset $_SESSION['id'])
     //HOUSES END
     
     //TEMPLE
-    else if (isset $_POST['button_temple'])
+    else if (isset ($_POST['button_temple']))
       {
       $stonecost    = (int) ($leveltemple * $leveltemple * 5 + $leveltemple * 80) * 1.5;
       $quartzcost   = (int) $stonecost;
@@ -499,7 +501,7 @@ if (isset $_SESSION['id'])
     //TEMPLE END
     
     //ARMORY
-    else if (isset $_POST['button_armory'])
+    else if (isset ($_POST['button_armory']))
       {
       $ironcost    = (int) ($levelarmory * $levelarmory * 5 + $levelarmory * 80) * 1.5;
       $quartzcost  = (int) $ironcost;
@@ -535,7 +537,7 @@ if (isset $_SESSION['id'])
     //ARMORY END
     
     //BATHS
-    else if (isset $_POST['button_baths'])
+    else if (isset ($_POST['button_baths']))
       {
       $stonecost  = (int) ($levelbath * $levelbath * 5 + $levelbath * 80) * 1.5;
       $woodcost   = (int) $stonecost;
@@ -571,7 +573,7 @@ if (isset $_SESSION['id'])
     //BATHS END
     
     //MARKET
-    else if (isset $_POST['button_market'])
+    else if (isset ($_POST['button_market']))
       {
       $ressourcecost    = (int) ($levelquartz * $levelquartz * 8 + $levelquartz * 90) * 1.7;
       if ($iron >= $ressourcecost AND $stone >= $ressourcecost AND $wood >= $ressourcecost AND $quartz >= $ressourcecost)
@@ -609,7 +611,7 @@ if (isset $_SESSION['id'])
     //MARKET END
     
     //FORUM
-    else if (isset $_POST['button_forum'])
+    else if (isset ($_POST['button_forum']))
       {
       $ressourcecost    = (int) ($levelquartz * $levelquartz * 12 + $levelquartz * 150) * 2;
       if ($iron >= $ressourcecost AND $stone >= $ressourcecost AND $wood >= $ressourcecost AND $quartz >= $ressourcecost)
