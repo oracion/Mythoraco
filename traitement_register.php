@@ -5,6 +5,7 @@ function redir($url){
 echo "<script language=\"javascript\">"; 
 echo "window.location='$url';"; 
 echo "</script>";  }
+session_start();
 if (!isset($_POST['pseudo']) || (!isset($_POST['password']))|| (!isset($_POST['password_retype']))|| (!isset($_POST['email'])))
 {
 redir("register.php");
@@ -42,8 +43,8 @@ $userid = $donnees['userid'];
 }
 //Creates entry in "buildings" table
 $req = $bdd->prepare('INSERT INTO buildings
-(userid, levelfire, levelwater, levelair, levelearth, levelquarry, levelquartz, levelsawmill, leveliron, levelhouse, leveltemple, levelbath, levelmarket, levelarmory, levelcity) 
-VALUES (:userid, :one, :one, :one, :one, :one, :one, :one, :one, :one, :one, :one, :one, :one, :one)');
+(userid, levelfire, levelwater, levelair, levelearth, levelquarry, levelquartz, levelsawmill, leveliron, levelhouse, leveltemple, levelbath, levelmarket, levelarmory, levelcity, levelforum) 
+VALUES (:userid, :one, :one, :one, :one, :one, :one, :one, :one, :one, :one, :one, :one, :one, :one, :one)');
 $req->execute(array(
  'userid' => $userid,
  'one' => 1
@@ -54,12 +55,12 @@ $req = $bdd->prepare('INSERT INTO ressources
 VALUES (:userid, :one, :zero, :zero, :zero, :zero, :zero, :zero, :zero, :zero, :zero, :zero, :zero, :hundred, :zero)');
 $req->execute(array(
  'userid' => $userid,
- 'one' => 1, 
- 'zero' => 0, 
+ 'one' => 1,
+ 'zero' => 0,
  'hundred' => 100
  ));
  
- echo "Enregistrement terminé.";
+ echo "Enregistrement terminï¿½.";
  echo "Redirecting...";
  redir("index.php");
 }
