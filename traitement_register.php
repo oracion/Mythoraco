@@ -52,7 +52,7 @@ $req->execute(array(
 //Creates entry in "ressources" table
 $req = $bdd->prepare('INSERT INTO ressources
 (userid, playerxp, playerlevel, fire, water, air, earth, stone, wood, iron, quartz, gold, happiness, favor)
-VALUES (:userid, :one, :zero, :zero, :zero, :zero, :zero, :zero, :zero, :zero, :zero, :zero, :zero, :hundred, :zero)');
+VALUES (:userid, :zero, :one, :zero, :zero, :zero, :zero, :zero, :zero, :zero, :zero, :zero, :hundred, :zero)');
 $req->execute(array(
  'userid' => $userid,
  'one' => 1,
