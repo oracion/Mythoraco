@@ -1,10 +1,8 @@
 <?php
-// la fonction de redirection ------------ 
-function redir($url){ 
-echo "<script language=\"javascript\">"; 
-echo "window.location='$url';"; 
-echo "</script>";  }
+include("phptools.php")
+?>
 
+<?php
 //On commence la connection � la database//
 try 
 {
