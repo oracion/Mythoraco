@@ -1,4 +1,8 @@
 <?php
+include("phptools.php")
+?>
+
+<?php
 session_start();
 
 if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] = false)
@@ -17,17 +21,7 @@ redir("index.php");
 <title>Mythoraco progresse !</title>
 </head>
 
-<?php 
-// la fonction de redirection ------------ 
-function redir($url){ 
-echo "<script language=\"javascript\">"; 
-echo "window.location='$url';"; 
-echo "</script>"; 
-} 
-?>
-
 <body>
-
 
 <?php include("online_layout.php") ?>
 
