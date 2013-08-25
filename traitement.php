@@ -1,4 +1,8 @@
 <?php
+include("phptools.php")
+?>
+
+<?php
 session_start();
 if (!isset($_POST['pseudo']) || (!isset($_POST['password'])))
 {
@@ -7,13 +11,7 @@ redir("index.php");
 ?>
 
 <?php
-// la fonction de redirection ------------ 
-function redir($url){ 
-echo "<script language=\"javascript\">"; 
-echo "window.location='$url';"; 
-echo "</script>";  }
-
-//On commence la connection à la database//
+//On commence la connection ï¿½ la database//
 try 
 {
 $bdd = new PDO('mysql:host=localhost;dbname=mythoracodb', 'root', '');
@@ -22,10 +20,10 @@ catch (Exception $e)
 {
         die('Erreur : ' . $e->getMessage());
 }
-//Si la connection à la database est réussie, on ouvre la table loginsdb//
+//Si la connection ï¿½ la database est rï¿½ussie, on ouvre la table loginsdb//
 $req = $bdd->prepare('SELECT * FROM logins WHERE username = ?');
 $req->execute(array($_POST['pseudo']));
-//Ensuite, on récupère les données unes à unes//
+//Ensuite, on rï¿½cupï¿½re les donnï¿½es unes ï¿½ unes//
 while ($donnees = $req->fetch())
 {
 	if (isset($_POST['pseudo']) && (isset($_POST['password'])))
