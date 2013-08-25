@@ -1,10 +1,8 @@
 <?php
-session_start();
-// la fonction de redirection ------------ 
-function redir($url){ 
-echo "<script language=\"javascript\">"; 
-echo "window.location='$url';"; 
-echo "</script>";  }
+include("phptools.php")
+?>
+
+<?php
 session_start();
 if (!isset($_POST['pseudo']) || (!isset($_POST['password']))|| (!isset($_POST['password_retype']))|| (!isset($_POST['email'])))
 {
