@@ -4,18 +4,11 @@
 <head>
 <meta charset="utf-8" />
 <?php include("javascript.php") ?>
+<?php include("phptools.php") ?>
+
 <link rel="stylesheet" href="stylesheet.css" />
 <title>Mythoraco progresse !</title>
 </head>
-
-<?php
-function redir($url)
-{ 
-echo "<script language=\"javascript\">"; 
-echo "window.location='$url';"; 
-echo "</script>"; 
-} 
-?>
 
 <?php
 session_start();
