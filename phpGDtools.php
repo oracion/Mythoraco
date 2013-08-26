@@ -74,3 +74,38 @@ function mergeTwoPNGAndOutputAsFile($image1path, $image2path, $xdim, $ydim)
   //Step 4 : Output image to file.
   imagepng($final_img, 'Merged_PNGs');
 }
+
+function addTextToImage($final_image, $x, $y, $text)
+{
+  // Allocate A Color And Font For The Text
+  $white = imagecolorallocate($final_image, 255, 255, 255);
+  $font_path = 'font.TTF';
+  
+  // Print Text On Image
+  // Args : Image, font size, angle (degrees), x-coord of bottom-left corner, y-coord of bottom-left corner, color, font, text.
+  imagettftext($final_image, 25, 0, $x, $y, $white, $font_path, $text);
+
+  // Return image
+  return $final_image;
+}
+
+function addTextToPNGFromPathAndPrint($imagepath, $x, $y, $text)
+{
+  //TEST FUNCTION
+  // Create Image From Existing File
+  $final_image = imagecreatefrompng($imagepath);
+
+  // Allocate A Color And Font For The Text
+  $white = imagecolorallocate($final_image, 255, 255, 255);
+  $font_path = 'font.TTF';
+  
+  // Print Text On Image
+  // Args : Image, font size, angle (degrees), x-coord of bottom-left corner, y-coord of bottom-left corner, color, font, text.
+  imagettftext($final_image, 25, 0, $x, $y, $white, $font_path, $text);
+
+  // Send Image to Browser
+  header('Content-type: image/jpeg');
+  imagepng($final_image);
+}
+
+?>
