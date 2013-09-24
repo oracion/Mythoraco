@@ -11,7 +11,7 @@ redir("index.php");
 ?>
 
 <?php
-//On commence la connection � la database//
+//On commence la connection ? la database//
 try 
 {
 $bdd = new PDO('mysql:host=localhost;dbname=mythoracodb', 'root', '');
@@ -20,10 +20,10 @@ catch (Exception $e)
 {
         die('Erreur : ' . $e->getMessage());
 }
-//Si la connection � la database est r�ussie, on ouvre la table loginsdb//
+//Si la connection ? la database est r?ussie, on ouvre la table loginsdb//
 $req = $bdd->prepare('SELECT * FROM logins WHERE username = ?');
 $req->execute(array($_POST['pseudo']));
-//Ensuite, on r�cup�re les donn�es unes � unes//
+//Ensuite, on r?cup?re les donn?es unes ? unes//
 while ($donnees = $req->fetch())
 {
 	if (isset($_POST['pseudo']) && (isset($_POST['password'])))

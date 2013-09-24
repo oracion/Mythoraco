@@ -3,7 +3,7 @@ include("phptools.php")
 ?>
 
 <?php
-//On commence la connection � la database//
+//On commence la connection ? la database//
 try 
 {
 $bdd = new PDO('mysql:host=localhost;dbname=mythoracodb', 'root', '');

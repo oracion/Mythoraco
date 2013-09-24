@@ -38,6 +38,8 @@ $reqread->execute(array(
 while ($donnees = $reqread->fetch())
 {
 $userid = $donnees['userid'];
+ echo "Redirecting...";
+ redir("index.php");
 }
 //Creates entry in "buildings" table
 $req = $bdd->prepare('INSERT INTO buildings
@@ -58,7 +60,7 @@ $req->execute(array(
  'hundred' => 100
  ));
  
- echo "Enregistrement termin�.";
+ echo "Enregistrement termin?.";
  echo "Redirecting...";
  redir("index.php");
 }

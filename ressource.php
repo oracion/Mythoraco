@@ -1,8 +1,4 @@
 <?php
-include("phptools.php")
-?>
-
-<?php
 try
 {
 $bdd = new PDO('mysql:host=localhost;dbname=mythoracodb', 'root', '');
@@ -19,13 +15,16 @@ while ($donnees = $req->fetch())
 
 <div id="ressource">
        <ul>
-           <li><img src="terre.png" alt="Element terre" title="Terre"><b>Terre</b></li>
+           <li><img src="graphics/ElementEarth.png" alt="Terre" title="Terre"><b>Terre</b></li>
            <?php echo $donnees['earth']; ?>
-           <li><img src="air.png" alt="Element air" title="Air"><b>Air</b></li>
+           <li><img src="graphics/ElementAir.png" alt="Element air" title="Air"><b>Air</b></li>
            <?php echo $donnees['air']; ?>
-           <li><img src="feu.png" alt="Element feu" title="Feu"><b>Feu</b></li>
+           <li><img src="graphics/ElementFire.png" alt="Element feu" title="Feu"><b>Feu</b></li>
            <?php echo $donnees['fire']; ?>
-	   <li><img src="eau.png" alt="Element eau" title="Eau"><b>Eau</b></li>
+	   <li><img src="graphics/ElementWater.png" alt="Element eau" title="Eau"><b>Eau</b></li>
            <?php echo $donnees['water']; ?>
        </ul>
 </div>
+<?php
+}
+?>
