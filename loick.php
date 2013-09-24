@@ -24,20 +24,20 @@
 <p><input type="int" name="moveSpeed" id="moveSpeed" placeholder="Vitesse de mouvement" size="25" required /></p>
 <p><input type="int" name="minRange" id="minRange" placeholder="Portee minimale" size="15" required /></p>
 <p><input type="int" name="maxRange" id="maxRange" placeholder="Portee maximale" size="15" required /></p>
-<p><input type="checkbox" name="humanoid" id="humanoid"/>Humanoide
-<input type="checkbox" name="beast" id="beast"/>Bete
-<input type="checkbox" name="creature" id="creature"/>Creature
-<input type="checkbox" name="fusion" id="fusion"/> Fusion
-<input type="checkbox" name="aviary" id="aviary"/> Aviaire</p>
-<p><input type="checkbox" name="mechanical" id="mechanical"/>Mechanique
-<input type="checkbox" name="giant" id="giant"/>Geant
-<input type="checkbox" name="tiny" id="tiny"/>Petit
-<input type="checkbox" name="etheral" id="etheral"/>Etheral
-<input type="checkbox" name="female" id="female"/>Femelle
-<input type="checkbox" name="male" id="male"/>Male
-<input type="checkbox" name="godly" id="godly"/>Dieu</p>
+<p><input type="hidden" value="0" name="humanoid" /><input type="checkbox" name="humanoid" value=1 id="humanoid"/>Humanoide
+<input type="hidden" value="0" name="beast" /><input type="checkbox" name="beast" value="1" id="beast"/>Bete
+<input type="hidden" value="0" name="creature" /><input type="checkbox" name="creature" value="1" id="creature"/>Creature
+<input type="hidden" value="0" name="fusion" /><input type="checkbox" name="fusion" value="1" id="fusion"/> Fusion
+<input type="hidden" value="0" name="aviary" /><input type="checkbox" name="aviary" value="1" id="aviary"/> Aviaire</p>
+<p><input type="hidden" value="0" name="mechanical" /><input type="checkbox" name="mechanical" value="1" id="mechanical"/>Mechanique
+<input type="hidden" value="0" name="giant" /><input type="checkbox" name="giant" value="1" id="giant"/>Geant
+<input type="hidden" value="0" name="tiny" /><input type="checkbox" name="tiny" value="1" id="tiny"/>Petit
+<input type="hidden" value="0" name="etheral" /><input type="checkbox" name="etheral" value="1" id="etheral"/>Etheral
+<input type="hidden" value="0" name="female" /><input type="checkbox" name="female" value="1" id="female"/>Femelle
+<input type="hidden" value="0" name="male" /><input type="checkbox" name="male" value="1" id="male"/>Male
+<input type="hidden" value="0" name="godly" /><input type="checkbox" name="godly" value="1" id="godly"/>Dieu</p>
 
-<p><input type="submit" value="modify" id="button" /></p>
+<p><input type="submit" value="Create" id="button" /><input type="reset" value="Reset" name="reset_button" id="reset_button"/></p>
 
 </div>
 </div>

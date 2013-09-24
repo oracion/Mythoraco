@@ -4,6 +4,7 @@ include("phptools.php")
 
 <?php
 $bdd = getMythoracoDb();
+
 $speciesName = $_POST['speciesName'];
 $rarity = $_POST['rarity'];
 $evolutionRank = $_POST['evolutionRank'];
@@ -29,5 +30,6 @@ $etheral = $_POST['etheral'];
 $godly = $_POST['godly'];
 $female = $_POST['female'];
 $male = $_POST['male'];
+
 insertLineIntoCardsDb($bdd, $speciesName, $rarity, $evolutionRank, $element, $attack, $defense, $abilityName, $abilityStrength, $cardType, $initiative, $moveSpeed, $minRange, $maxRange, $humanoid, $beast, $creature, $fusion, $aviary, $mechanical, $giant, $tiny, $etheral, $godly, $female, $male);
 ?>
